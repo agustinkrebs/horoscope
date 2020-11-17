@@ -1,28 +1,57 @@
-.horoscope-cards-container {
+.content-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
 
-  .horoscope-card {
-    width: 300px;
-    margin: 10px;
+  .intro-container {
+    width: 1050px;
+  }
+
+  .horoscope-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+  }
+
+  .horoscope-selector-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+    width: 1050px;
     padding: 10px;
     border-radius: 10px;
     background-color: #FFDAC1;
   }
 
-  /*
-  .even {
-    background-color: #FFDAC1;
+  .results-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #FFDAC1;
+
+    .results-header {
+      align-self: center;
+    }
   }
-  
-  .odd {
-    background-color: #B5EAD7;
-  }
-  */
 }
 
-.horoscope-selector {
+.horoscope-card {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  width: 300px;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #FFDAC1;
+
+  .card-header {
+    align-self: center
+  }
 }

@@ -1,0 +1,25 @@
+<div class="content-container">
+  <div class="results-container">
+    <h2 class="results-header">Resultados</h2>
+    <p>Tu respuesta fue <%= @status %>.</p>
+    <p>De un total de <%= @guesses.total_guesses %> intentos, <%= @guesses.correct_guesses %> personas han elegido la respuesta correcta.</p>
+    <p>Esto corresponde a un porcentaje de <%= @real_result.round(3) %>%.</p>
+    <p>Si una persona eligiera aleatoriamente, se esperaría un porcentaje de <%= @expected_random_correct.round(3) %>%.</p>
+  </div>
+
+  <div class="horoscope-card">
+    <h2 class="card-header"><%= @sign_name %></h2>
+    <div class="card-field">
+      <h3>Amor</h3>
+      <p><%= @sign_data[:love] %></p>
+    </div>
+    <div class="card-field">
+      <h3>Salud</h3>
+      <p><%= @sign_data[:health] %></p>
+    </div>
+    <div class="card-field">
+      <h3>Dinero</h3>
+      <p><%= @sign_data[:money] %></p>
+    </div>
+  </div>
+</div>

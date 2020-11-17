@@ -1,32 +1,43 @@
-<h1>Test del horóscopo</h1>
-<div class="horoscope-cards-container">
-  <% @signs_data.each do |sign_data| %>
-    <div class="horoscope-card">
-      <div class="card-field">
-        <h3>Amor</h3>
-        <p><%= sign_data[:love] %></p>
+<div class="content-container">
+  <div class="intro-container">
+    <h1>Test del horóscopo</h1>
+    <p>¡Hola! Bienvenid@ al <strong>test del horóscopo</strong>. A continuación se muestra el horóscopo del día de Yolanda Sultana, perteneciente al día <%= @date_of_horoscope %>. Como podrás notar, hemos removido los signos zodiacales. La idea es que puedas leer todas las tarjetas para luego intentar predecir cuál es la que podría corresponder a tu signo. Con esto, buscamos analizar si existe un verdadero patrón de comportamiento entre gente con el mismo signo, o verdaderamente no existe correlación.</p>
+    <p>¡Te invitamos a leer las tarjetas y elegir las 3 con las que más te identificas!</p>
+  </div>
+  <div class="horoscope-cards-container">
+    <% card_id = 1 %>
+    <% @signs_data.each do |sign_data| %>
+      <div class="horoscope-card">
+        <h2 class="card-header"><%= card_id %></h2>
+        <div class="card-field">
+          <h3>Amor</h3>
+          <p><%= sign_data[:love] %></p>
+        </div>
+        <div class="card-field">
+          <h3>Salud</h3>
+          <p><%= sign_data[:health] %></p>
+        </div>
+        <div class="card-field">
+          <h3>Dinero</h3>
+          <p><%= sign_data[:money] %></p>
+        </div>
       </div>
-      <div class="card-field">
-        <h3>Salud</h3>
-        <p><%= sign_data[:health] %></p>
+      <% card_id += 1 %>
+    <% end %>
+  </div>
+  <div class="horoscope-selector-container">
+    <%= form_with(url: evaluate_test_results_path, method: "post") do %>
+      <div class="field">
+        <%= label_tag(:sign_id, "¿Cuál es tu signo zodiacal?") %>
+        <%= select_tag(:sign_id, options_for_select(@signs_list)) %>
       </div>
-      <div class="card-field">
-        <h3>Dinero</h3>
-        <p><%= sign_data[:money] %></p>
-      </div>
-    </div>
-  <% end %>
-</div>
-<div class="horoscope-selector">
-  <%= form_with(url: evaluate_test_results_path, method: "post") do %>
-    <div class="field">
-      <%= label_tag(:sign_id, "¿Cuál es tu signo zodiacal?") %>
-      <%= select_tag(:sign_id, options_for_select([["Aries", 0],["Tauro", 1],["Géminis", 2],["Cáncer", 4],["Leo", 5],["Virgo", 6],["Libra", 7],["Escorpión", 8],["Capricornio", 9],["Acuario", 10],["Piscis", 11]])) %>
-    </div>
-    <div class="field">
-      <%= label_tag(:card_id, "Elige cuál crees que es tu tarjeta") %>
-      <%= select_tag(:card_id, options_for_select([1,2,3,4,5,6,7,8,9,10,11,12])) %>
-    </end>
-    <%= submit_tag("Veamos!") %>
-  <% end %>
+      <div class="field">
+        <%= label_tag("Elige cuál podría ser la tarjeta que corresponde a tu signo, tienes 3 opciones:") %>
+        <%= select_tag(:card_id1, options_for_select(@select_list)) %>
+        <%= select_tag(:card_id2, options_for_select(@select_list)) %>
+        <%= select_tag(:card_id3, options_for_select(@select_list)) %>
+      </end>
+      <%= submit_tag("¡Veamos!") %>
+    <% end %>
+  </div>
 </div>
