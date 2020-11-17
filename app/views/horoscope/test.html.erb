@@ -1,2 +1,19 @@
-<h1>Horoscope#test</h1>
-<p></p>
+<h1>Horoscope test</h1>
+<div class="horoscope-cards-container">
+  <% @signs_data.each do |sign_data| %>
+    <div class="horoscope-card">
+      <div class="card-field">
+        <h3>Amor</h3>
+        <p><%= sign_data[:love] %></p>
+      </div>
+      <div class="card-field">
+        <h3>Salud</h3>
+        <p><%= sign_data[:health] %></p>
+      </div>
+      <div class="card-field">
+        <h3>Dinero</h3>
+        <p><%= sign_data[:money] %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

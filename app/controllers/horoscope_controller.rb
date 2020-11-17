@@ -14,7 +14,8 @@ class HoroscopeController < ApplicationController
   def extract_information(todays_horoscope)
     signs_data = []
     todays_horoscope.each do |sign, values|
-      sign_data = {love: values["amor"], health: values["salud"], money: values["dinero"], color: values["color"], number: values["numero"]}
+      sign_data = {love: values["amor"], health: values["salud"], money: values["dinero"],
+      color: values["color"], number: values["numero"]}
       signs_data.append(sign_data)
     end
     signs_data.shuffle

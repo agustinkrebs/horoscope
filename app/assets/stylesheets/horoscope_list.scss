@@ -1,0 +1,23 @@
+.horoscope-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .horoscope-card {
+    width: 300px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #FFDAC1;
+  }
+
+  /*
+  .even {
+    background-color: #FFDAC1;
+  }
+  
+  .odd {
+    background-color: #B5EAD7;
+  }
+  */
+}
