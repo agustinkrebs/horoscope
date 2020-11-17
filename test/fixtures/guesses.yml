@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_guesses: 1
+  correct_guesses: 1
+
+two:
+  total_guesses: 1
+  correct_guesses: 1
