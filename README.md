@@ -22,7 +22,7 @@ Como nota aparte, siempre he pensado que la tecnología es un medio para fines m
 Dada la simplicidad de la app, se cuenta con un modelo, un controlador y dos vistas.
 El modelo corresponde a `Guess` el cual fue creado con el único fin de almacenar los números totales de los tests. Estos números se guardan en las columnas/atributos `total_guesses` y `correct_guesses`. Cabe mancionar que esta tabla solo tendrá una columna, dado que los totales se actualizarán en vez de ir añadiendo filas a la tabla (no se necesita ese detalle de información). Luego, en el controlador `HoroscopeController` se encuentra toda la lógica de manejo de vistas, consultas a la API externa, calculo de porcentajes, entre otros. Por último, en las dos vistas `results.html.erb` y `test.html.erb` sucede la interacción con el usuario.
 
-Una posible mejora hubiese sido poder acceder a horóscopos pasados para hacer un análisis "a posteriori" para la identificación de tarjetas. Esto no se implementó dado que la API no tenía la posibilidad de acceder a datos pasados ("no hay forma de obtener horóscopos anteriores, porque es de mala suerte")
+Una posible mejora hubiese sido poder acceder a horóscopos pasados para hacer un análisis "a posteriori" para la identificación de tarjetas. Esto no se implementó dado que la API no tenía la posibilidad de acceder a datos pasados ("no hay forma de obtener horóscopos anteriores, porque es de mala suerte").
 .
 ### Cómo correr la aplicación
 Esta aplicación fue hecha ocupando Ruby on Rails, versión 2.5.1.
@@ -31,6 +31,13 @@ Luego, deberás correr (dentro de la carpeta madre del repositorio) los siguient
 ```
 bundle install
 ```
+```
+yarn install
+```
+```
+rails db:create
+```
+
 ```
 rails db:migrate
 ```
