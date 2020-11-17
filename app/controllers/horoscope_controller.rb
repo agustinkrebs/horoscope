@@ -5,6 +5,10 @@ class HoroscopeController < ApplicationController
     @signs_data = extract_information(todays_horoscope)
   end
 
+  def evaluate
+    puts "hola"
+  end
+
   private
   def get_horoscope
     response = RestClient.get 'https://api.xor.cl/tyaas/'
