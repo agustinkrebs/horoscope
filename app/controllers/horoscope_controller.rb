@@ -1,11 +1,6 @@
 class HoroscopeController < ApplicationController
   def test
-    json_response = get_horoscope
-    todays_horoscope = json_response["horoscopo"]
-    @date_of_horoscope = json_response["titulo"]
-    @signs_data = extract_information(todays_horoscope)
-    @signs_list = [["Aries", 0],["Tauro", 1],["Géminis", 2],["Cáncer", 3],["Leo", 4],["Virgo", 5],["Libra", 6],["Escorpión", 7],["Sagitario", 8],["Capricornio", 9],["Acuario", 10],["Piscis", 11]]
-    @select_list = [[1, @signs_data[0][:id]],[2, @signs_data[1][:id]],[3, @signs_data[2][:id]],[4, @signs_data[3][:id]],[5, @signs_data[4][:id]],[6, @signs_data[5][:id]],[7, @signs_data[6][:id]],[8, @signs_data[7][:id]],[9, @signs_data[8][:id]],[10, @signs_data[9][:id]],[11, @signs_data[10][:id]],[12, @signs_data[11][:id]]]
+    @date_of_horoscope, @signs_data, @signs_list, @select_list  = PreprocessData.for()
   end
 
   def evaluate
@@ -48,11 +43,6 @@ class HoroscopeController < ApplicationController
     horoscope = get_horoscope
     sign_horoscope = horoscope["horoscopo"][sign_name]
     sign_data = {love: sign_horoscope["amor"], health: sign_horoscope["salud"], money: sign_horoscope["dinero"]}
-  end
-
-  def get_horoscope
-    response = RestClient.get 'https://api.xor.cl/tyaas/'
-    json = JSON.parse response
   end
 
   def extract_information(todays_horoscope)
